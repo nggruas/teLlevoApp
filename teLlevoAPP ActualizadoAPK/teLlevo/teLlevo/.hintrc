@@ -1,0 +1,22 @@
+{
+  "extends": [
+    "development"
+  ],
+  "hints": {
+    "typescript-config/strict": "off",
+    "compat-api/html": [
+      "default",
+      {
+        "ignore": [
+          "ion-input[inputmode]"
+        ]
+      }
+    ],
+    "axe/text-alternatives": [
+      "default",
+      {
+        "image-alt": "off"
+      }
+    ]
+  }
+}

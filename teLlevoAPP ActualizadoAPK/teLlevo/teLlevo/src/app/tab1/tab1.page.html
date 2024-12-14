@@ -1,0 +1,38 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button routerLink="/profile">
+        <ion-icon name="person"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Historial de Reservas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <h1>Historial de Reservas</h1>
+
+  <ion-content class="qr">
+    <ion-text color="primary"><h5>Generar QR de historial</h5></ion-text>
+    <input type="text" [(ngModel)]="texto">
+    <br><br>
+    <qrcode [qrdata]="texto" [width]="100"></qrcode>
+
+    <ion-list *ngIf="misReservas.length > 0">
+      <ion-item *ngFor="let reserva of misReservas">
+        <ion-label>
+          <h2>Reserva ID: {{ reserva.id }}</h2>
+          <p>Viaje ID: {{ reserva.tripId }}</p>
+          <p>Asientos: {{ reserva.seats }}</p>
+          <p>Fecha de reserva: {{ reserva.reservationDate | date }}</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  
+    <ion-text *ngIf="misReservas.length === 0">
+      <p>No tienes reservas.</p>
+    </ion-text>
+  </ion-content>
+
+
+</ion-content>

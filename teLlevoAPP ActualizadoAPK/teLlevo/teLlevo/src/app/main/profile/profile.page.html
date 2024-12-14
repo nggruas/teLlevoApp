@@ -1,0 +1,46 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button routerLink="/home">
+        <ion-icon name="car"  style="color: aqua;"></ion-icon>
+        <ion-title style="color: aqua;">Solicitar viaje</ion-title>
+      </ion-button>
+    </ion-buttons>
+    <ion-title >{{ usuario.tipo + ' ' + usuario.name }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <img alt="" src="https://docs-demo.ionic.io/assets/madison.jpg" />
+    <ion-card-header>
+      <ion-card-title>Bienvenido:</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <ng-container *ngIf="usuario; else noUserData">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>{{ usuario.name }}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <p>Email: {{ usuario.email }}</p>
+            <ion-buttons slot="start">
+              <ion-button routerLink="/tabs">
+                <ion-icon name="home" style="color: rgb(255, 0, 106);" ></ion-icon>
+              </ion-button>
+            </ion-buttons>
+          </ion-card-content>
+        </ion-card>
+      </ng-container>
+    
+      <ng-template #noUserData>
+        <ion-item>
+          <ion-label>No hay datos de usuario disponibles.</ion-label>
+        </ion-item>
+      </ng-template>
+    
+    </ion-card-content>
+  </ion-card>
+
+  </ion-content>
